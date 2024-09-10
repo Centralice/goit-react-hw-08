@@ -1,7 +1,7 @@
-// import s from './UserMenu.module.css'
+import s from "./UserMenu.module.css";
 
 const UserMenu = () => {
-  return <div>UserMenu</div>;
+  return <p className={s.welcome}>Welcome, user!</p>;
 };
 
 export default UserMenu;

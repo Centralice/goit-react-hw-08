@@ -1,7 +1,12 @@
-// import s from './Navigation.module.css'
+import s from "./Navigation.module.css";
 
 const Navigation = () => {
-  return <div>Navigation</div>;
+  return (
+    <div className={s.navigation}>
+      <p>Home</p>
+      <p>Contacts</p>
+    </div>
+  );
 };
 
 export default Navigation;
