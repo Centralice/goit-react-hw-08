@@ -4,10 +4,13 @@ import "modern-normalize";
 import "./index.css";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import HomePage from "./pages/HomePage/HomePage";
+import { BrowserRouter } from "react-router-dom";
+import App from "./components/App";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <HomePage />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Provider>
 );

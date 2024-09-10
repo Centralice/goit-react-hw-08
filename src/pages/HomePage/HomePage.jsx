@@ -1,10 +1,8 @@
-import AppBar from "../../components/AppBar/AppBar";
 import s from "./HomePage.module.css";
 
 const HomePage = () => {
   return (
     <div>
-      <AppBar />
       <div className={s.paragraph}>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint non
@@ -14,7 +12,7 @@ const HomePage = () => {
           quis natus suscipit laboriosam quae assumenda, eaque ab corporis
           soluta!
         </p>
-<br />
+        <br />
         <p>
           Ratione amet minus autem repudiandae adipisci aperiam molestias! Illo
           commodi cumque autem harum eius velit incidunt, qui enim debitis quam
