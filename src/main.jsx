@@ -4,9 +4,10 @@ import "modern-normalize";
 import "./index.css";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import HomePage from "./pages/HomePage/HomePage";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-      <Home />
+    <HomePage />
   </Provider>
 );
