@@ -2,3 +2,12 @@
   display: flex;
   gap: 25px;
 }
+
+.link {
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.active {
+  text-decoration: underline;
+}
