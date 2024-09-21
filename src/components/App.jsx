@@ -1,10 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import AppBar from "./AppBar/AppBar";
-// import HomePage from "../pages/HomePage/HomePage";
-// import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
-// import RegisterPage from "../pages/RegisterPage/RegisterPage";
-// import LoginPage from "../pages/LoginPage/LoginPage";
-// import ContactsPage from "../pages/ContactsPage/ContactsPage";
 import { lazy, Suspense } from "react";
 import Loader from "./Loader/Loader";
 
