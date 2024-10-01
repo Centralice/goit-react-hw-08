@@ -2,15 +2,18 @@ import { useId } from "react";
 import * as Yup from "yup";
 import { Field, Formik, Form, ErrorMessage } from "formik";
 import s from "./RegistrationForm.module.css";
+import { useDispatch } from "react-redux";
+import { register } from "../../redux/auth/operations";
 
 const RegistrationForm = () => {
-  function reg(values, actions) {
-    console.log(values);
+  const dispatch = useDispatch();
+  function handleSubmit(value, actions) {
+    dispatch(register(value));
     actions.resetForm();
   }
   const id = useId();
   const regSchema = Yup.object().shape({
-    username: Yup.string()
+    name: Yup.string()
       .min(3, "Too Short!")
       .max(30, "Too Long!")
       .required("Required"),
@@ -22,13 +25,13 @@ const RegistrationForm = () => {
   });
   return (
     <Formik
-      initialValues={{ username: "", email: "", password: "" }}
-      onSubmit={reg}
+      initialValues={{ name: "", email: "", password: "" }}
+      onSubmit={handleSubmit}
       validationSchema={regSchema}
     >
       <Form>
         <label htmlFor={`${id}-username`}>Username</label>
-        <Field type="text" name="username" id={`${id}-username`}></Field>
+        <Field type="text" name="name" id={`${id}-name`}></Field>
         <ErrorMessage name="username"></ErrorMessage>
 
         <label htmlFor={`${id}-email`}>Email</label>
@@ -38,7 +41,9 @@ const RegistrationForm = () => {
         <label htmlFor={`${id}-password`}>Password</label>
         <Field type="password" name="password" id={`${id}-password`}></Field>
         <ErrorMessage name="password"></ErrorMessage>
-        <button type="submit">Sign Up</button>
+        <button type="submit">
+          Sign Up
+        </button>
       </Form>
     </Formik>
   );
