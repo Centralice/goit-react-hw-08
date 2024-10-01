@@ -8,7 +8,7 @@ import Loader from "../../components/Loader/Loader";
 import { selectError, selectLoading } from "../../redux/contacts/selectors";
 import s from "./ContactsPage.module.css";
 
-const App = () => {
+const ContactsPage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchContacts());
@@ -29,4 +29,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default ContactsPage;
