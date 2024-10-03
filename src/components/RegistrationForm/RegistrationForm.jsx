@@ -19,7 +19,7 @@ const RegistrationForm = () => {
       .required("Required"),
     email: Yup.string().required("Required"),
     password: Yup.string()
-      .min(8, "Too Short!")
+      .min(3, "Too Short!")
       .max(30, "Too Long!")
       .required("Required"),
   });
@@ -30,9 +30,9 @@ const RegistrationForm = () => {
       validationSchema={regSchema}
     >
       <Form>
-        <label htmlFor={`${id}-username`}>Username</label>
+        <label htmlFor={`${id}-name`}>Username</label>
         <Field type="text" name="name" id={`${id}-name`}></Field>
-        <ErrorMessage name="username"></ErrorMessage>
+        <ErrorMessage name="name"></ErrorMessage>
 
         <label htmlFor={`${id}-email`}>Email</label>
         <Field type="email" name="email" id={`${id}-email`}></Field>
@@ -41,9 +41,7 @@ const RegistrationForm = () => {
         <label htmlFor={`${id}-password`}>Password</label>
         <Field type="password" name="password" id={`${id}-password`}></Field>
         <ErrorMessage name="password"></ErrorMessage>
-        <button type="submit">
-          Sign Up
-        </button>
+        <button type="submit">Sign Up</button>
       </Form>
     </Formik>
   );
