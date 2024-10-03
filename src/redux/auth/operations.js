@@ -5,6 +5,9 @@ axios.defaults.baseURL = "https://connections-api.goit.global/";
 const setAuthHeader = (token) => {
   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 };
+const clearAuthHeader = () => {
+  axios.defaults.headers.common["Authorization"] = "";
+};
 
 export const register = createAsyncThunk(
   "auth/register",
@@ -31,3 +34,12 @@ export const login = createAsyncThunk(
     }
   }
 );
+
+export const logout = createAsyncThunk("auth/logout", async (_, thunkAPI) => {
+  try {
+    await axios.post("/users/logout");
+    clearAuthHeader();
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
