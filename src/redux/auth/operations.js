@@ -14,3 +14,17 @@ export const register = createAsyncThunk(
     }
   }
 );
+
+export const login = createAsyncThunk(
+  "auth/login",
+  async (userInfo, thunkAPI) => {
+    try {
+      console.log(userInfo);
+
+      const response = await axios.post("/users/login", userInfo);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
