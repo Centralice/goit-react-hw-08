@@ -16,7 +16,7 @@ import authReducer from "./auth/slice";
 
 const persistedAuthReducer = persistReducer(
   {
-    key: "root",
+    key: "jwt-token",
     storage,
     whitelist: ["token"],
   },
