@@ -2,8 +2,9 @@ import { Route, Routes } from "react-router-dom";
 import AppBar from "./AppBar/AppBar";
 import { lazy, Suspense, useEffect } from "react";
 import Loader from "./Loader/Loader";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { refreshUser } from "../redux/auth/operations";
+import { selectIsRefreshing } from "../redux/auth/selectors";
 
 const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
 const NotFoundPage = lazy(() => import("../pages/NotFoundPage/NotFoundPage"));
@@ -18,7 +19,8 @@ const App = () => {
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
-  return (
+  const isRefreshing = useSelector(selectIsRefreshing);
+  return !isRefreshing ? (
     <div>
       <AppBar />
       <Suspense fallback={<Loader />}>
@@ -31,6 +33,8 @@ const App = () => {
         </Routes>
       </Suspense>
     </div>
+  ) : (
+    <Loader />
   );
 };
 
